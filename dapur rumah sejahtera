@@ -1,0 +1,192 @@
+//class utama
+ public class KonversiBilangan {
+ //global variabel
+     static String name;//object
+     static String kelamin;//object
+     static int bilDes;//variable
+     
+	     //method-method
+	 public static void Biner(int n){
+	     if(n>1){
+		 Biner(n/2);
+	     }
+	     System.out.print(n%2);
+	 }
+	 public static void Hexa(int n){
+	     char[] daftarHexa={'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
+	     if(n>0){
+		 Hexa(n/16);
+		 System.out.print(daftarHexa[n%16]);
+	     }
+	 }
+	 public static void Oktal(int n){
+	     char[] daftarOktal={'0','1','2','3','4','5','6','7'};
+	     if(n>0){
+		 Oktal(n/8);
+		 System.out.print(daftarOktal[n%8]);
+	     }
+	 }
+	 public static void inputDes(){
+	     System.out.print("Masukkan Bilangan Desimal = ");
+	     Scanner inputan=new Scanner(System.in);
+	     bilDes=inputan.nextInt();
+	     //return bilDes;
+	 }
+	 public static int inpBil(){
+	     System.out.println("=========================="
+		     + "\nYey, Selamat datang "+kelamin+" "+name+",");
+	     System.out.println("Silahkan memilih Menu Konversi "
+		     + "Bilangan ke : "+
+		     "\n1. Biner \n2. Hexa \n3. Oktal \n4. Exit"
+		     );
+	     System.out.print("Masukkan Angka Menu = ");
+	     Scanner inputan = new Scanner(System.in);
+	     int pilmenu=inputan.nextInt();
+	     return pilmenu;
+	 }
+	 public static void menU(int pil){
+	     System.out.println("\033"); //clean sreen
+	     switch(pil){
+		 case 1 : tampilBiner(); break;
+		 case 2 : tampilHexa(); break;
+		 case 3 : tampilOktal(); break;
+		 case 4 : System.out.println("Terimakasih sudah mampir :)");
+		     System.exit(0); break;
+		 default : System.out.println("(Maaf. Pilih angka 1-4 saja)");
+		 break;
+	     }
+	     System.out.println("\033");
+	 }
+	 
+		 
+     }
+// 1a)   decimal to biner ====================================
+ public static void main(String arg[]){
+     name=JOptionPane.showInputDialog("Masukkan nama Anda : ");//menampilkan input dialog untuk memasukkan nama
+     //menampilkan Option Dialog untuk memilih jenis kelamin
+         String[] choices = {"Perempuan", "Laki-Laki", "Quit"};
+         
+         String Perempuan="Perempuan";
+         String Laki="Laki-Laki";
+         while (true) {
+             int response = JOptionPane.showOptionDialog(
+                                null                       
+                              , "Apa jenis kelamin Anda ?"    // Pesan
+                              , "Jenis Kelamin"               // Judul di Tittlebar
+                              , JOptionPane.YES_NO_OPTION  // Tipe Option
+                              , JOptionPane.QUESTION_MESSAGE  // Tipe Pesan
+                              , null                       
+                              , choices     
+                              , "Quit"    // Default button
+                            );
+         switch(response){
+             case 0 : kelamin=Perempuan;
+                 break;
+             case 1 : kelamin=Laki;
+                 break;
+             default : kelamin="Tidak Ada";
+         }
+     do{
+         menU(inpBil());
+     }
+     while(true);
+         }
+ }
+ //1b)biner to decimal=============================================================
+ import java.util.Scanner;
+
+public class BinerDec
+{
+ Scanner scan = new Scanner(System.in);;
+ int num;
+ 
+ void KonversiNilai()
+ {
+  System.out.println("Program Konversi Bil. Biner ke Decimal");
+  System.out.println("======================================");
+  
+  System.out.print("\nMasukkan Bilangan Biner :");
+  num = Integer.parseInt(scan.nextLine(), 2);
+  System.out.println("Konversi Dalam bilangan decimal : " + num);
+ }
+}
+ 
+class MainClass {
+ 
+ public static void main(String args[]) {
+  BinerDec bil = new BinerDec();
+  bil.KonversiNilai();
+ }
+}
+     }
+     while(true);
+         }
+ }
+ }
+ 
+// 2)======================================================================
+  import java.util.Scanner;
+ class Palindrom{
+	public static void main(String[] args){
+	System.out.print("Masukkan Angka Menu = ");
+	     Scanner inputan = new Scanner(System.in);
+	     String teks=inputan.nextInt();
+		new Palindrom().palindrome(teks);		
+	}
+	
+	private void palindrome(String teks){		
+		String poli = "";		
+
+		for(int i=teks.length();i>0;i--){
+			String test1 = teks.substring(i-1, i);
+			poli += test1;
+		}
+		
+		if(teks.equals(poli)){
+			System.out.println("==== "+teks+" adalah Palindrome =====");
+		}else{
+			System.out.println("==== "+teks+" bukan Palindrome =====");
+		}
+	}
+}
+
+2a) CREATE TABLE Order (
+    Id int,
+    TanggalOrder DATETIME DEFAULT   CURRENT_TIMESTAMP,
+    StatusPelunasan varchar(15),
+    TanggalPembayaran  DATETIME
+);
+
+INSERT INTO Order(Id, TanggalOrder, StatusPelunasan , TanggalPembayaran )
+VALUES (1, '2020-12-01 11:30:00', 'lunas', '2020-12-01 12:00:00');
+INSERT INTO Order(Id, TanggalOrder, StatusPelunasan , TanggalPembayaran )
+VALUES (2, '2020-12-02 10:30:00', 'pending', null);
+
+2b) CREATE TABLE Transaksi (
+    Id int,
+    IdTransaksi int NOT NULL AUTO_INCREMENT,
+    Harga int,
+    Jumlah int,
+    Subtotal int,
+    Id int FOREIGN KEY REFERENCES Order(Id)
+);
+
+INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
+VALUES (1,null, '2020-12-01 11:30:00', 1000, 1,1000);
+INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
+VALUES (1,null, '2020-12-01 11:30:00', 1000, 1,2000);
+INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
+VALUES (2,null, '2020-12-01 11:30:00', 625, 2,1250);
+INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
+VALUES (2,null, '2020-12-01 11:30:00', 625, 2,1250);
+
+2c) select b.id, a.TanggalOrder as Tanggal Order, a.Status, a.TanggalPembayaran as Tanggal Pembayaran, sum(b.Subtotal) as Total,b.jumlah as jumlah_barang
+from Order a inner join Transaksi b on a.Id = b.Id
+group by  b.id, a.TanggalOrder,a.Status, a.TanggalPembayaran, b,jumlah
+order by a.TanggalOrder
+
+
+
+
+
+
