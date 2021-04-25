@@ -172,13 +172,13 @@ VALUES (2, '2020-12-02 10:30:00', 'pending', null);
 );
 
 INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
-VALUES (1,null, '2020-12-01 11:30:00', 1000, 1,1000);
+VALUES (1,null, '2020-12-01 11:30:00', 1000, 1,10000);
 INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
-VALUES (1,null, '2020-12-01 11:30:00', 1000, 1,2000);
+VALUES (1,null, '2020-12-01 11:30:00', 1000, 1,10000);
 INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
-VALUES (2,null, '2020-12-01 11:30:00', 625, 2,1250);
+VALUES (2,null, '2020-12-01 11:30:00', 625, 2,12500);
 INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
-VALUES (2,null, '2020-12-01 11:30:00', 625, 2,1250);
+VALUES (2,null, '2020-12-01 11:30:00', 625, 2,12500);
 
 2c) select b.id, a.TanggalOrder as Tanggal Order, a.Status, a.TanggalPembayaran as Tanggal Pembayaran, sum(b.Subtotal) as Total,b.jumlah as jumlah_barang
 from OrderPem a inner join Transaksi b on a.Id = b.Id
