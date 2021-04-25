@@ -180,7 +180,7 @@ VALUES (2,null, '2020-12-01 11:30:00', 625, 2,12500);
 INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
 VALUES (2,null, '2020-12-01 11:30:00', 625, 2,12500);
 
-2c) select b.id, a.TanggalOrder as Tanggal Order, a.Status, a.TanggalPembayaran as Tanggal Pembayaran, sum(b.Subtotal) as Total,b.jumlah as jumlah_barang
+2c) select b.id, a.TanggalOrder as Tanggal_Order, a.Status, a.TanggalPembayaran as Tanggal_Pembayaran, sum(b.Subtotal) as Total,b.jumlah as jumlah_barang
 from OrderPem a inner join Transaksi b on a.Id = b.Id
 group by  b.id, a.TanggalOrder,a.Status, a.TanggalPembayaran, b,jumlah
 order by a.TanggalOrder
