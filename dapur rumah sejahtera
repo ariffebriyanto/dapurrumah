@@ -150,16 +150,16 @@ class MainClass {
 	}
 }
 
-2a) CREATE TABLE Order (
+2a) CREATE TABLE OrderPem (
     Id int,
     TanggalOrder DATETIME DEFAULT   CURRENT_TIMESTAMP,
     StatusPelunasan varchar(15),
     TanggalPembayaran  DATETIME
 );
 
-INSERT INTO Order(Id, TanggalOrder, StatusPelunasan , TanggalPembayaran )
+INSERT INTO OrderPem(Id, TanggalOrder, StatusPelunasan , TanggalPembayaran )
 VALUES (1, '2020-12-01 11:30:00', 'lunas', '2020-12-01 12:00:00');
-INSERT INTO Order(Id, TanggalOrder, StatusPelunasan , TanggalPembayaran )
+INSERT INTO OrderPem(Id, TanggalOrder, StatusPelunasan , TanggalPembayaran )
 VALUES (2, '2020-12-02 10:30:00', 'pending', null);
 
 2b) CREATE TABLE Transaksi (
@@ -181,7 +181,7 @@ INSERT INTO Transaksi(Id, IdTransaksi, Harga, Jumlah, Subtotal )
 VALUES (2,null, '2020-12-01 11:30:00', 625, 2,1250);
 
 2c) select b.id, a.TanggalOrder as Tanggal Order, a.Status, a.TanggalPembayaran as Tanggal Pembayaran, sum(b.Subtotal) as Total,b.jumlah as jumlah_barang
-from Order a inner join Transaksi b on a.Id = b.Id
+from OrderPem a inner join Transaksi b on a.Id = b.Id
 group by  b.id, a.TanggalOrder,a.Status, a.TanggalPembayaran, b,jumlah
 order by a.TanggalOrder
 
